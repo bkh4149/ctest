@@ -26,4 +26,4 @@ jobs:
         fi
 
     - name: Pythonスクリプトの実行
-      run: python aoki/t3.py
+      run: python aoki/aaa.py
