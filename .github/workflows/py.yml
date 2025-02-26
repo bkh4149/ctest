@@ -1,0 +1,29 @@
+name: Python Application CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: コードのチェックアウト
+      uses: actions/checkout@v2
+
+    - name: Pythonのセットアップ
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: 依存関係のインストール
+      run: |
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+
+    - name: Pythonスクリプトの実行
+      run: python your_script.py
